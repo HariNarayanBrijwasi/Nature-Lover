@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Nature Lover - Pure Ayurvedic &amp; Natural Indian Products | Neem Datun, Organic Cow Dung Upla, Cow Dung Ash, Aloe Vera Gel, A2 Cow Ghee, Turmeric, Ashwagandha, Triphala &amp; more. Shipping Worldwide. Rooted in Ancient Indian Wisdom.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nature Lover | Pure Indian Ayurvedic Products – Global Delivery</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&amp;family=Poppins:wght@400;500&amp;display=swap');
+        
+        :root {
+            --saffron: #FF9933;
+            --green: #138808;
+            --gold: #F4C430;
+        }
+        
+        * {
+            transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+            transition-duration: 150ms;
+        }
+        
+        .tailwind-ready {
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .heading-font {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Indian cultural background pattern */
+        .hero-bg {
+            background: linear-gradient(rgba(19, 136, 8, 0.85), rgba(255, 153, 51, 0.85)), 
+                        url('https://picsum.photos/id/1015/2000/1200') center/cover no-repeat;
+            animation: subtleMove 30s infinite linear;
+        }
+        
+        @keyframes subtleMove {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        /* Floating Rishi animation */
+        .rishi-float {
+            animation: floatRishi 4s ease-in-out infinite;
+        }
+        
+        @keyframes floatRishi {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-25px) rotate(5deg); }
+        }
+        
+        /* Product card hover */
+        .product-card {
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        
+        .product-card:hover {
+            transform: scale(1.08) rotate(2deg);
+            box-shadow: 0 25px 50px -12px rgb(19 136 8 / 0.25);
+        }
+        
+        /* Lotus border animation */
+        .lotus-border {
+            position: relative;
+        }
+        
+        .lotus-border::before {
+            content: '🌸';
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            font-size: 2rem;
+            animation: lotusSpin 12s linear infinite;
+            opacity: 0.3;
+        }
+        
+        @keyframes lotusSpin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        /* Scroll animation */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Global shipping banner */
+        .global-banner {
+            background: linear-gradient(90deg, #FF9933, #138808);
+            animation: bannerPulse 3s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body class="tailwind-ready">
+    <!-- NAVBAR -->
+    <nav class="bg-white border-b-4 border-[#FF9933] shadow-xl sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+            
+            <!-- Logo -->
+            <div class="flex items-center gap-3">
+                <div class="w-12 h-12 bg-[#138808] rounded-2xl flex items-center justify-center text-4xl shadow-inner">🌿</div>
+                <div>
+                    <h1 class="heading-font text-3xl font-bold text-[#138808] tracking-tighter">Nature Lover</h1>
+                    <p class="text-xs font-medium text-[#FF9933] -mt-1">Pure • Ayurvedic • Eternal</p>
+                </div>
+            </div>
+
+            <!-- Menu -->
+            <div class="hidden md:flex items-center gap-8 text-lg font-medium">
+                <a href="#home" class="hover:text-[#FF9933] flex items-center gap-1"><i class="fa-solid fa-house"></i> Home</a>
+                <a href="#products" class="hover:text-[#FF9933] flex items-center gap-1"><i class="fa-solid fa-leaf"></i> Products</a>
+                <a href="#about" class="hover:text-[#FF9933] flex items-center gap-1"><i class="fa-solid fa-scroll"></i> Our Story</a>
+                <a href="#global" class="hover:text-[#FF9933] flex items-center gap-1"><i class="fa-solid fa-globe"></i> Ship Worldwide</a>
+                <a href="#contact" class="hover:text-[#FF9933] flex items-center gap-1"><i class="fa-solid fa-envelope"></i> Contact</a>
+            </div>
+
+            <div class="flex items-center gap-4">
+                <!-- Cart -->
+                <a href="#" onclick="alert('🛒 Cart coming soon! Add products and enjoy global shipping.')" 
+                   class="flex items-center gap-2 bg-[#FF9933] hover:bg-[#138808] text-white px-6 py-3 rounded-3xl font-semibold text-sm uppercase tracking-widest">
+                    <i class="fa-solid fa-shopping-bag"></i>
+                    <span>Cart (0)</span>
+                </a>
+                
+                <!-- Mobile menu button -->
+                <button onclick="toggleMobileMenu()" class="md:hidden text-3xl text-[#138808]">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+                
+                <!-- Indian flag inspired badge -->
+                <div class="hidden sm:flex items-center text-xs font-bold px-4 py-1 bg-gradient-to-r from-[#FF9933] via-white to-[#138808] rounded-3xl border-2 border-[#FF9933] shadow-inner">
+                    🇮🇳 MADE IN BHARAT
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="hidden md:hidden bg-white border-t px-6 py-6 text-lg font-medium">
+            <a href="#home" class="block py-3 border-b">🏠 Home</a>
+            <a href="#products" class="block py-3 border-b">🌿 Products</a>
+            <a href="#about" class="block py-3 border-b">📜 Our Story</a>
+            <a href="#global" class="block py-3 border-b">🌍 Ship Worldwide</a>
+            <a href="#contact" class="block py-3">✉️ Contact Us</a>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section id="home" class="hero-bg h-screen flex items-center relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center h-full">
+            
+            <!-- Left Content -->
+            <div class="text-white space-y-8 pt-12 md:pt-0">
+                <div class="inline-flex items-center gap-2 bg-white/20 backdrop-blur-md px-6 py-2 rounded-3xl text-sm font-semibold">
+                    <span class="relative flex h-3 w-3">
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#FF9933] opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-3 w-3 bg-[#FF9933]"></span>
+                    </span>
+                    NOW SHIPPING TO 120+ COUNTRIES
+                </div>
+                
+                <h1 class="heading-font text-6xl md:text-7xl font-bold leading-none tracking-tighter">
+                    NATURE LOVER<br>
+                    <span class="text-[#FF9933]">Ancient Wisdom.</span><br>
+                    Pure Products.
+                </h1>
+                
+                <p class="text-2xl max-w-md">
+                    From the sacred lands of India — Pure Neem Datun, Organic Cow Dung Upla, 100% Cow Dung Ash, Aloe Vera Gel &amp; many more Ayurvedic treasures. 
+                    <span class="italic">Harvesting goodness since the time of the Rishis.</span>
+                </p>
+                
+                <div class="flex flex-wrap gap-4">
+                    <a onclick="document.getElementById('products').scrollIntoView({ behavior: 'smooth' })" 
+                       class="px-10 py-5 bg-[#FF9933] hover:bg-white hover:text-[#138808] text-2xl font-semibold rounded-3xl flex items-center gap-3 shadow-2xl">
+                        🛍️ SHOP NOW GLOBALLY
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                    
+                    <a href="#about" 
+                       class="px-8 py-5 border-4 border-white hover:bg-white hover:text-[#138808] text-2xl font-semibold rounded-3xl flex items-center gap-3">
+                        MEET RISHI VAGBHATA
+                    </a>
+                </div>
+                
+                <div class="flex items-center gap-8 text-sm">
+                    <div class="flex items-center gap-2">
+                        <i class="fa-solid fa-leaf text-4xl"></i>
+                        <div>
+                            <div class="font-bold">100% Organic</div>
+                            <div class="text-white/80">Certified by Indian farmers</div>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <i class="fa-solid fa-truck text-4xl"></i>
+                        <div>
+                            <div class="font-bold">Worldwide Shipping</div>
+                            <div class="text-white/80">Fast &amp; eco-friendly</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Right Side: Rishi Vagbhata + products floating -->
+            <div class="relative flex justify-center md:justify-end">
+                <!-- Rishi Vagbhata -->
+                <div class="rishi-float absolute md:right-12 top-12 md:top-20 bg-white rounded-3xl shadow-2xl p-4 w-64 text-center lotus-border">
+                    <img src="https://i.imgur.com/9kL8vPq.jpeg" 
+                         alt="Rishi Vagbhata Ji – Father of Ayurveda" 
+                         class="w-56 mx-auto rounded-2xl shadow-xl">
+                    <p class="mt-3 font-semibold text-[#138808] text-lg">Rishi Vagbhata Ji</p>
+                    <p class="text-xs text-gray-500">“Let food be thy medicine and medicine be thy food”</p>
+                    <div class="absolute -top-3 -right-3 bg-[#FF9933] text-white text-xs font-bold px-3 py-1 rounded-3xl rotate-12 shadow">Living Wisdom</div>
+                </div>
+                
+                <!-- Floating product icons -->
+                <div class="absolute -left-4 bottom-24 md:bottom-40 bg-white/90 backdrop-blur-md text-[#138808] text-sm font-bold px-5 py-3 rounded-3xl shadow-xl flex items-center gap-2 animate-bounce">
+                    🌿 Pure Neem Datun
+                </div>
+                <div class="absolute right-8 top-64 bg-white/90 backdrop-blur-md text-[#138808] text-sm font-bold px-5 py-3 rounded-3xl shadow-xl flex items-center gap-2 animate-bounce" style="animation-delay: 800ms;">
+                    🐮 Organic Cow Upla
+                </div>
+                <div class="hidden lg:block absolute left-1/3 top-96 bg-white/90 backdrop-blur-md text-[#138808] text-sm font-bold px-5 py-3 rounded-3xl shadow-xl flex items-center gap-2 animate-bounce" style="animation-delay: 1600ms;">
+                    🔥 Cow Dung Ash
+                </div>
+            </div>
+        </div>
+        
+        <!-- Scroll indicator -->
+        <div class="absolute bottom-8 left-1/2 flex flex-col items-center text-white text-sm">
+            <div>Scroll to discover pure India</div>
+            <i class="fa-solid fa-chevron-down animate-bounce text-3xl mt-2"></i>
+        </div>
+    </section>
+
+    <!-- GLOBAL SHIPPING BANNER -->
+    <div id="global" class="global-banner text-white py-4 text-center font-bold text-xl flex items-center justify-center gap-3">
+        <i class="fa-solid fa-globe fa-spin"></i>
+        SHIPPING TO USA • UK • EUROPE • AUSTRALIA • CANADA • UAE • SINGAPORE &amp; 100+ MORE COUNTRIES
+        <i class="fa-solid fa-globe fa-spin"></i>
+    </div>
+
+    <!-- PRODUCTS SECTION -->
+    <section id="products" class="max-w-7xl mx-auto px-6 py-20">
+        <div class="text-center mb-16">
+            <span class="px-6 py-2 bg-[#FF9933] text-white text-sm font-bold rounded-3xl">🌍 OUR SACRED COLLECTION</span>
+            <h2 class="heading-font text-5xl mt-4 text-[#138808]">Pure Ayurvedic Treasures from Mother Nature’s Lap</h2>
+            <p class="max-w-md mx-auto text-gray-600 mt-4">Handcrafted with love by Indian farmers following 5000-year-old Ayurvedic traditions. Now 8 premium products!</p>
+        </div>
+        
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            
+            <!-- Product 1 -->
+            <div class="product-card bg-white rounded-3xl overflow-hidden shadow-xl border-4 border-[#FF9933]/10">
+                <div class="h-64 flex items-center justify-center bg-gradient-to-br from-green-50 to-emerald-100 p-8">
+                    <img src="https://m.media-amazon.com/images/I/71k0bZ3dJZL.jpg" alt="Pure Neem Tooth Stick" class="drop-shadow-2xl max-h-56">
+                </div>
+                <div class="p-6">
+                    <div class="flex justify-between items-start">
+                        <h3 class="text-2xl font-semibold text-[#138808]">Pure Neem Tooth Stick (Datun)</h3>
+                        <span class="text-3xl">🌿</span>
+                    </div>
+                    <p class="text-gray-600 mt-2 text-sm">Natural toothbrush from neem twigs – fights plaque, freshens breath, Ayurvedic dental care.</p>
+                    <div class="mt-6 flex justify-between items-end">
+                        <div>
+                            <span class="text-xs text-gray-400">Starting at</span>
+                            <span class="block text-4xl font-bold text-[#FF9933]">$4.99</span>
+                        </div>
+                        <button onclick="addToCart(this)" class="bg-[#138808] text-white px-8 py-4 rounded-3xl flex items-center gap-2 text-sm font-semibold">
+                            ADD TO CART <i class="fa-solid fa-cart-plus"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Product 2 -->
+            <div class="product-card bg-white rounded-3xl overflow-hidden shadow-xl border-4 border-[#FF9933]/10">
+                <div class="h-64 flex items-center justify-center bg-gradient-to-br from-amber-50 to-orange-100 p-8">
+                    <img src="https://m.media-amazon.com/images/I/61n8z0fK0jL.jpg" alt="Organic Cow Dung Upla" class="drop-shadow-2xl max-h-56 rounded-2xl">
+                </div>
+                <div class="p-6">
+                    <div class="flex justify-between items-start">
+                        <h3 class="text-2xl font-semibold text-[#138808]">Organic Cow Dung Upla</h3>
+                        <span class="text-3xl">🐮</span>
+                    </div>
+                    <p class="text-gray-600 mt-2 text-sm">Dried cow dung patties – traditional fuel, natural fertilizer &amp; sacred Havan samagri.</p>
+                    <div class="mt-6 flex justify-between items-end">
+                        <div>
+                            <span class="text-xs text-gray-400">Starting at</span>
+                            <span class="block text-4xl font-bold text-[#FF9933]">$9.99 / 5 pcs</span>
+                        </div>
+                        <button onclick="addToCart(this)" class="bg-[#138808] text-white px-8 py-4 rounded-3xl flex items-center gap-2 text-sm font-semibold">
+                            ADD TO CART <i class="fa-solid fa-cart-plus"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Product 3 -->
+            <div class="product-card bg-white rounded-3xl overflow-hidden shadow-xl border-4 border-[#FF9933]/10">
+                <div class="h-64 flex items-center justify-center bg-gradient-to-br from-stone-50 to-gray-100 p-8">
+                    <img src="https://i.imgur.com/4p8vX9k.jpg" alt="100% Pure Cow Dung Ash" class="drop-shadow-2xl max-h-56 rounded-2xl">
+                </div>
+                <div class="p-6">
+                    <div class="flex justify-between items-start">
+                        <h3 class="text-2xl font-semibold text-[#138808]">100% Pure Cow Dung Ash</h3>
+                        <span class="text-3xl">🔥</span>
+                    </div>
+                    <p class="text-gray-600 mt-2 text-sm">Traditional washing powder – eco-friendly, removes stains, purifies vessels &amp; floors.</p>
+                    <div class="mt-6 flex justify-between items-end">
+                        <div>
+                            <span class="text-xs text-gray-400">Starting at</span>
+                            <span class="block text-4xl font-bold text-[#FF9933]">$6.99 / 500g</span>
+                        </div>
+                        <button onclick="addToCart(this)" class="bg-[#138808] text-white px-8 py-4 rounded-3xl flex items-center gap-2 text-sm font-semibold">
+                            ADD TO CART <i class="fa-solid fa-cart-plus"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Product 4 -->
+            <div class="product-card bg-white rounded-3xl overflow-hidden shadow-xl border-4 border-[#FF9933]/10">
+                <div class="h-64 flex items-center justify-center bg-gradient-to-br from-emerald-50 to-teal-100 p-8">
+                    <img src="https://m.media-amazon.com/images/I/81y4Z5qP4ZL.jpg" alt="Pure Aloe Vera Gel" class="drop-shadow-2xl max-h-56 rounded-2xl">
+                </div>
+                <div class="p-6">
+                    <div class="flex justify-between items-start">
+                        <h3 class="text-2xl font-semibold text-[#138808]">Pure Aloe Vera Gel</h3>
+                        <span class="text-3xl">🪴</span>
+                    </div>
+                    <p class="text-gray-600 mt-2 text-sm">100% natural cooling gel – skin moisturizer, hair care, burns &amp; soothing Ayurvedic remedy.</p>
+                    <div class="mt-6 flex justify-between items-end">
+                        <div>
+                            <span class="text-xs text-gray-400">Starting at</span>
+                            <span class="block text-4xl font-bold text-[#FF9933]">$8.99 / 250g</span>
+                        </div>
+                        <button onclick="addToCart(this)" class="bg-[#138808] text-white px-8 py-4 rounded-3xl flex items-center gap-2 text-sm font-semibold">
+                            ADD TO CART <i class="fa-solid fa-cart-plus"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- NEW Product 5: A2 Desi Cow Ghee -->
+            <div class="product-card bg-white rounded-3xl overflow-hidden shadow-xl border-4 border-[#FF9933]/10">
+                <div class="h-64 flex items-center justify-center bg-gradient-to-br from-yellow-50 to-amber-100 p-8">
+                    <img src="https://m.media-amazon.com/images/I/71fZ4Z4Z4ZL.jpg" alt="Pure A2 Desi Cow Ghee" class="drop-shadow-2xl max-h-56 rounded-2xl">
+                </div>
+                <div class="p-6">
+                    <div class="flex justify-between items-start">
+                        <h3 class="text-2xl font-semibold text-[#138808]">Pure A2 Desi Cow Ghee</h3>
+                        <span class="text-3xl">🐄</span>
+                    </div>
+                    <p class="text-gray-600 mt-2 text-sm">Tradi
