@@ -10,7 +10,6 @@
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@400;500&display=swap');
         .product-card { transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1); }
         .product-card:hover { transform: scale(1.08) rotate(2deg); box-shadow: 0 25px 50px -12px rgb(19 136 8); }
-        .cart-modal { animation: slideUp 0.3s ease; }
     </style>
 </head>
 <body class="font-sans bg-gray-50">
@@ -22,7 +21,6 @@
             <div class="w-12 h-12 bg-[#138808] rounded-2xl flex items-center justify-center text-4xl">🌿</div>
             <h1 class="text-3xl font-bold text-[#138808]">Nature Lover</h1>
         </div>
-        
         <div class="flex items-center gap-6 text-lg">
             <a href="#products" class="hover:text-[#FF9933]">Products</a>
             <a href="#" onclick="showCart()" class="flex items-center gap-2 relative">
@@ -33,14 +31,12 @@
     </div>
 </nav>
 
-<!-- HERO -->
-<section class="bg-gradient-to-r from-[#138808] to-[#FF9933] text-white py-16 text-center">
-    <h1 class="text-5xl font-bold">Pure Ayurvedic Treasures</h1>
-    <p class="mt-4 text-xl">Handcrafted in India • Shipping Worldwide</p>
-    <div class="mt-8">
-        <a href="#products" class="bg-white text-[#138808] px-10 py-4 rounded-3xl text-xl font-semibold inline-flex items-center gap-3">
-            Shop Now <i class="fa-solid fa-arrow-right"></i>
-        </a>
+<!-- HERO with Rishi Ji -->
+<section class="bg-gradient-to-r from-[#138808] to-[#FF9933] text-white py-16 text-center relative">
+    <div class="max-w-7xl mx-auto px-6">
+        <img src="https://ibb.co/bjY60wtx" alt="Rishi Vagbhata Ji" class="mx-auto w-64 rounded-3xl shadow-2xl mb-6">
+        <h1 class="text-5xl font-bold">Pure Ayurvedic Treasures</h1>
+        <p class="mt-4 text-xl">Handcrafted in India • Shipping Worldwide</p>
     </div>
 </section>
 
@@ -49,13 +45,13 @@
     <h2 class="text-center text-4xl font-bold text-[#138808] mb-10">Our Sacred Collection</h2>
     
     <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8" id="product-grid">
-        <!-- JS se products load honge -->
+        <!-- JS se load honge -->
     </div>
 </section>
 
-<!-- CART MODAL -->
+<!-- CART & CHECKOUT MODALS (same as before) -->
 <div id="cart-modal" class="hidden fixed inset-0 bg-black/70 z-[9999] flex items-end md:items-center justify-center">
-    <div class="bg-white w-full max-w-lg rounded-t-3xl md:rounded-3xl cart-modal p-6">
+    <div class="bg-white w-full max-w-lg rounded-t-3xl md:rounded-3xl p-6">
         <div class="flex justify-between items-center mb-6">
             <h3 class="text-2xl font-bold">Your Cart</h3>
             <button onclick="hideCart()" class="text-3xl">✕</button>
@@ -70,7 +66,6 @@
     </div>
 </div>
 
-<!-- CHECKOUT MODAL -->
 <div id="checkout-modal" class="hidden fixed inset-0 bg-black/70 z-[10000] flex items-end md:items-center justify-center">
     <div class="bg-white w-full max-w-lg rounded-t-3xl md:rounded-3xl p-6">
         <h3 class="text-2xl font-bold mb-6">Checkout</h3>
@@ -88,16 +83,15 @@
 </div>
 
 <script>
-    // Products data
     const products = [
-        { id:1, name:"Pure Neem Tooth Stick (Datun)", price:499, unit:"pack", img:"https://picsum.photos/id/1015/800/600" },
-        { id:2, name:"Organic Cow Dung Upla", price:999, unit:"5 pcs", img:"https://picsum.photos/id/1016/800/600" },
-        { id:3, name:"100% Pure Cow Dung Ash", price:699, unit:"500g", img:"https://picsum.photos/id/133/800/600" },
-        { id:4, name:"Pure Aloe Vera Gel", price:899, unit:"250g", img:"https://picsum.photos/id/201/800/600" },
-        { id:5, name:"Pure A2 Desi Cow Ghee", price:1299, unit:"500g", img:"https://picsum.photos/id/1005/800/600" },
-        { id:6, name:"Organic Haldi Powder", price:599, unit:"250g", img:"https://picsum.photos/id/133/800/600" },
-        { id:7, name:"Ashwagandha Root Powder", price:999, unit:"200g", img:"https://picsum.photos/id/160/800/600" },
-        { id:8, name:"Triphala Churna Powder", price:799, unit:"250g", img:"https://picsum.photos/id/201/800/600" }
+        { id:1, name:"Pure Neem Tooth Stick (Datun)", price:499, unit:"pack" },
+        { id:2, name:"Organic Cow Dung Upla", price:999, unit:"5 pcs", img:"https://ibb.co/9mmw3yz0" },
+        { id:3, name:"100% Pure Cow Dung Ash", price:699, unit:"500g", img:"https://ibb.co/bRHJ2Bn1" },
+        { id:4, name:"Pure Aloe Vera Gel", price:899, unit:"250g", img:"https://ibb.co/8gNCMb2z" },
+        { id:5, name:"Pure A2 Desi Cow Ghee", price:1299, unit:"500g", img:"https://ibb.co/MkrBN74W" },
+        { id:6, name:"Organic Haldi Powder", price:599, unit:"250g" },
+        { id:7, name:"Ashwagandha Root Powder", price:999, unit:"200g" },
+        { id:8, name:"Triphala Churna Powder", price:799, unit:"250g" }
     ];
 
     let cart = [];
@@ -108,9 +102,10 @@
         products.forEach(p => {
             const card = document.createElement('div');
             card.className = 'product-card bg-white rounded-3xl overflow-hidden shadow-xl';
+            const imgSrc = p.img || 'https://picsum.photos/id/1015/800/600'; // default for missing
             card.innerHTML = `
                 <div class="h-64 flex items-center justify-center bg-gradient-to-br from-green-50 to-emerald-100 p-8">
-                    <img src="${p.img}" class="drop-shadow-2xl max-h-56">
+                    <img src="${imgSrc}" class="drop-shadow-2xl max-h-56 rounded-2xl">
                 </div>
                 <div class="p-6">
                     <h3 class="text-2xl font-semibold text-[#138808]">${p.name}</h3>
@@ -129,7 +124,6 @@
         const existing = cart.find(item => item.id === id);
         if (existing) existing.qty++;
         else cart.push({...product, qty:1});
-        
         updateCartCount();
         alert(`${product.name} added to cart!`);
     }
@@ -143,13 +137,11 @@
         const modal = document.getElementById('cart-modal');
         const container = document.getElementById('cart-items');
         container.innerHTML = '';
-        
         if (cart.length === 0) {
             container.innerHTML = `<p class="text-center py-12 text-gray-400">Cart is empty</p>`;
             modal.classList.remove('hidden');
             return;
         }
-        
         let total = 0;
         cart.forEach((item, index) => {
             const itemTotal = item.price * item.qty;
@@ -167,7 +159,6 @@
                 </div>
             `;
         });
-        
         document.getElementById('cart-total').textContent = `₹${total}`;
         modal.classList.remove('hidden');
     }
@@ -178,56 +169,35 @@
         updateCartCount();
     }
 
-    function hideCart() {
-        document.getElementById('cart-modal').classList.add('hidden');
-    }
-
-    function proceedToCheckout() {
-        hideCart();
-        document.getElementById('checkout-modal').classList.remove('hidden');
-    }
-
-    function hideCheckout() {
-        document.getElementById('checkout-modal').classList.add('hidden');
-    }
+    function hideCart() { document.getElementById('cart-modal').classList.add('hidden'); }
+    function proceedToCheckout() { hideCart(); document.getElementById('checkout-modal').classList.remove('hidden'); }
+    function hideCheckout() { document.getElementById('checkout-modal').classList.add('hidden'); }
 
     function handleOrder(e) {
         e.preventDefault();
-        
         const name = document.getElementById('name').value;
         const phone = document.getElementById('phone').value;
         const address = document.getElementById('address').value;
         
-        let orderText = `🛒 *New Order - Nature Lover*\n\n`;
-        orderText += `👤 Name: ${name}\n`;
-        orderText += `📱 Phone: ${phone}\n`;
-        orderText += `📍 Address: ${address}\n\n`;
-        orderText += `🛍️ Items:\n`;
-        
+        let orderText = `🛒 *New Order - Nature Lover*\n\n👤 Name: ${name}\n📱 Phone: ${phone}\n📍 Address: ${address}\n\n🛍️ Items:\n`;
         let total = 0;
         cart.forEach(item => {
             const itemTotal = item.price * item.qty;
             total += itemTotal;
             orderText += `• ${item.name} × \( {item.qty} = ₹ \){itemTotal}\n`;
         });
+        orderText += `\n💰 Total: ₹${total}\n✅ Please confirm this order!`;
         
-        orderText += `\n💰 Total: ₹${total}\n`;
-        orderText += `\n✅ Please confirm this order!`;
-        
-        // WhatsApp link
-        const whatsappLink = `https://wa.me/919876543210?text=${encodeURIComponent(orderText)}`; 
-        // ←←← YAHAN APNA NUMBER DAAL DO (91 ke saath, bina + ke)
+        const whatsappLink = `https://wa.me/91YOURNUMBERHERE?text=${encodeURIComponent(orderText)}`; 
+        // ←←← YAHAN APNA WHATSAPP NUMBER DAAL DO (91 ke saath)
         
         window.open(whatsappLink, '_blank');
-        
-        // Clear cart after order
         cart = [];
         updateCartCount();
         hideCheckout();
-        alert('✅ Order sent on WhatsApp! Check your WhatsApp for confirmation.');
+        alert('✅ Order sent on WhatsApp! Check your WhatsApp.');
     }
 
-    // Initialize
     window.onload = () => {
         renderProducts();
         updateCartCount();
